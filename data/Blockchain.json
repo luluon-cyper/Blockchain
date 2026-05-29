@@ -1,0 +1,60 @@
+[
+  {
+    "Index": 0,
+    "PrevHash": "0",
+    "Hash": "cWp2BYKHUVtg94Hvyw9AE5fha9jZjBWlHcoAipD092o=",
+    "Transactions": [
+      {
+        "SoChungNhan": "1",
+        "MaSoThue": "1",
+        "TenCongTy": "1",
+        "LoaiSanPham": "1",
+        "NgayCap": "2026-05-29T15:18:34.2737146+07:00",
+        "NgayHetHan": "2026-05-29T15:18:34.2737146+07:00",
+        "TransactionHash": "Iof2XWuy6Mmj3D/lXkozwvdNxVYqT2xEO6rqeMKdFMI=",
+        "Signature": null,
+        "PublicKey": null
+      },
+      {
+        "SoChungNhan": "1",
+        "MaSoThue": "1",
+        "TenCongTy": "1",
+        "LoaiSanPham": "1",
+        "NgayCap": "2026-05-29T15:18:34.2737146+07:00",
+        "NgayHetHan": "2026-05-29T15:18:34.2737146+07:00",
+        "TransactionHash": "Iof2XWuy6Mmj3D/lXkozwvdNxVYqT2xEO6rqeMKdFMI=",
+        "Signature": null,
+        "PublicKey": null
+      }
+    ]
+  },
+  {
+    "Index": 1,
+    "PrevHash": "cWp2BYKHUVtg94Hvyw9AE5fha9jZjBWlHcoAipD092o=",
+    "Hash": "XCwXA8GNmP9b4o4PG75l7DGDiWc7UsjaomdxG9OiU/o=",
+    "Transactions": [
+      {
+        "SoChungNhan": "2",
+        "MaSoThue": "2",
+        "TenCongTy": "2",
+        "LoaiSanPham": "2",
+        "NgayCap": "2026-05-29T15:18:34.2737146+07:00",
+        "NgayHetHan": "2026-05-29T15:18:34.2737146+07:00",
+        "TransactionHash": "s3x5KP5PBHlqxiCfMfO9ytXz777HnOoq3E4bnIklgeU=",
+        "Signature": null,
+        "PublicKey": null
+      },
+      {
+        "SoChungNhan": "2",
+        "MaSoThue": "2",
+        "TenCongTy": "2",
+        "LoaiSanPham": "2",
+        "NgayCap": "2026-05-29T15:18:34.2737146+07:00",
+        "NgayHetHan": "2026-05-29T15:18:34.2737146+07:00",
+        "TransactionHash": "s3x5KP5PBHlqxiCfMfO9ytXz777HnOoq3E4bnIklgeU=",
+        "Signature": null,
+        "PublicKey": null
+      }
+    ]
+  }
+]
