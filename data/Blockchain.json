@@ -2,58 +2,54 @@
   {
     "Index": 0,
     "PrevHash": "0",
-    "Hash": "cWp2BYKHUVtg94Hvyw9AE5fha9jZjBWlHcoAipD092o=",
+    "Hash": "aS6qZIfLPLTFgoQBcp57RxHGdoNqQY/jd8dIiavF4zI=",
     "Transactions": [
       {
         "SoChungNhan": "1",
         "MaSoThue": "1",
         "TenCongTy": "1",
         "LoaiSanPham": "1",
-        "NgayCap": "2026-05-29T15:18:34.2737146+07:00",
-        "NgayHetHan": "2026-05-29T15:18:34.2737146+07:00",
-        "TransactionHash": "Iof2XWuy6Mmj3D/lXkozwvdNxVYqT2xEO6rqeMKdFMI=",
-        "Signature": null,
-        "PublicKey": null
+        "NgayCap": "2026-05-29T20:16:47.1206677+07:00",
+        "NgayHetHan": "2026-05-29T20:16:47.1206677+07:00",
+        "TransactionHash": "PclLeQiv1kkKOtXfNHhZM37wc/zaKjZ2\u002BYA3yyvIBL0=",
+        "Signature": "cR6QGNShcEQ3tOoLbFRw9P2g5C174pNi1Y8vLr12jxm6108apu4iEgGhdiavXkaWUCRYfEfcyKFbnpvzOTC8v5TvLPFxoEl7ut064C6KcCeYCUN0NNTM3jwxBxNGIKA\u002BEMRdmVQRFm1Ui6onlA79wHUbTZGoQa7IgnSSHn2qrlwgEdV3lqQkMpJUPyhKmlDR29AyIt8mdxTsk43bRracFFO4foYRHhiUdsUeMfyYV9cUfSKkQ5T0lt\u002Bh8cJG2ksqP\u002BsC0JMK7r2yRgIDb/ahGFUSeZz8nLH/VWZP7n5WHt/Ich44yFpLlPInYg/FkAcpeUX9abotcABuTimlMIl35g=="
       },
       {
-        "SoChungNhan": "1",
-        "MaSoThue": "1",
-        "TenCongTy": "1",
-        "LoaiSanPham": "1",
-        "NgayCap": "2026-05-29T15:18:34.2737146+07:00",
-        "NgayHetHan": "2026-05-29T15:18:34.2737146+07:00",
-        "TransactionHash": "Iof2XWuy6Mmj3D/lXkozwvdNxVYqT2xEO6rqeMKdFMI=",
-        "Signature": null,
-        "PublicKey": null
+        "SoChungNhan": "2",
+        "MaSoThue": "2",
+        "TenCongTy": "2",
+        "LoaiSanPham": "2",
+        "NgayCap": "2026-05-29T20:16:47.1206677+07:00",
+        "NgayHetHan": "2026-05-29T20:16:47.1206677+07:00",
+        "TransactionHash": "7QM0wdPZANscjtDSeTOmyegNspoVWlUMllu0QPNzs60=",
+        "Signature": "CTeD7Pg13F\u002BRbd/ml8\u002BpvsLSDe/Nrr10zYPE85atPwRZ5J6kVMCjypgWJiX5ckrQAvGRYZ1KfF3uiwBEb8Lk0VqVnU76\u002BacNLSVV5/hmRK9B0UdaMYGz9wT3lA9RC1ciqljCmINoSKpCJ\u002BeFZ2wlKsY1XAmuBXiDLYeCxlKISB7ClA7/kWRvEgsBu0C9ndkreJi6b9VXTyNPVTiJ0xOdZ9lecWAccBjkZB4hC/Hh2GfizLqM6DRwDI\u002BBoxkz1KoF283FWRQXlsMPIn\u002BGeB2us3Jd6P/ltIhPbwOct5uGodCxSl6qDRi8ec6rBBLGac65rm6ABn\u002BR1H3LHhIufgf/ig=="
       }
     ]
   },
   {
     "Index": 1,
-    "PrevHash": "cWp2BYKHUVtg94Hvyw9AE5fha9jZjBWlHcoAipD092o=",
-    "Hash": "XCwXA8GNmP9b4o4PG75l7DGDiWc7UsjaomdxG9OiU/o=",
+    "PrevHash": "aS6qZIfLPLTFgoQBcp57RxHGdoNqQY/jd8dIiavF4zI=",
+    "Hash": "vb00WfsdMCYy1lck\u002B6pNRujwOAppvQdE/3x8zS88\u002BgU=",
     "Transactions": [
       {
-        "SoChungNhan": "2",
-        "MaSoThue": "2",
-        "TenCongTy": "2",
-        "LoaiSanPham": "2",
-        "NgayCap": "2026-05-29T15:18:34.2737146+07:00",
-        "NgayHetHan": "2026-05-29T15:18:34.2737146+07:00",
-        "TransactionHash": "s3x5KP5PBHlqxiCfMfO9ytXz777HnOoq3E4bnIklgeU=",
-        "Signature": null,
-        "PublicKey": null
+        "SoChungNhan": "3",
+        "MaSoThue": "3",
+        "TenCongTy": "3",
+        "LoaiSanPham": "3",
+        "NgayCap": "2026-05-29T20:16:47.1206677+07:00",
+        "NgayHetHan": "2026-05-29T20:16:47.1206677+07:00",
+        "TransactionHash": "WboSiERFAynSgbEdZGfpOKMuOMFTQoCsyAMX1D0H/lM=",
+        "Signature": "tWUSj7RdbcREJtbjWQkTctEGFb9jd2/H9NsWvhkV1HesgfecCKBi53izCVuqIapFhPtoZi9PeAtTV3L/fl8HtkQ0I9b3fya25a2J5HwUTRjfx4cmArP8TmAxd28rcYHBZC845PKH7sTRFLKh/u6/5gCc6rgC9jK6VHJKY/gOJ8xtk1Dx3r/N\u002Bs\u002BgXPHAJmCklKpbSaZe/XPTW/2ceOhT5O1VkvmmG\u002BfKhmfLOaP/y48bcnL8Tj/JVMfzGuhQBtc6S0oPJDg3C/YNHUAiIs1bcEbl8f6IMNGsCQTNjoaRz5lLRXU0nZUT5DfifOdBJajuHQmayCaPxhJdpEZkK5qaBw=="
       },
       {
-        "SoChungNhan": "2",
-        "MaSoThue": "2",
-        "TenCongTy": "2",
-        "LoaiSanPham": "2",
-        "NgayCap": "2026-05-29T15:18:34.2737146+07:00",
-        "NgayHetHan": "2026-05-29T15:18:34.2737146+07:00",
-        "TransactionHash": "s3x5KP5PBHlqxiCfMfO9ytXz777HnOoq3E4bnIklgeU=",
-        "Signature": null,
-        "PublicKey": null
+        "SoChungNhan": "4",
+        "MaSoThue": "4",
+        "TenCongTy": "4",
+        "LoaiSanPham": "4",
+        "NgayCap": "2026-05-29T20:16:47.1206677+07:00",
+        "NgayHetHan": "2026-05-29T20:16:47.1206677+07:00",
+        "TransactionHash": "ao5YqX0OZTTzxblpjuNSKqNlAEwa8fNRJuKLsLBY8S4=",
+        "Signature": "l8JIxob2TotrU2AHutUy\u002BvGbMq91ybt5yUvz5v5xuwaLtt1ZklMxDyDDPbLuwpIM/TCpEM/j3bVBpdsBWX\u002BnYjzId/q/gj5yOgw0pqCP/1sNt4XrAcMmkJ1f1MQZRjaIJc5twaa6hDkq\u002BTfkTfGKzbmbYGCik4rVBv/Tw/o/gCoz4fRw5w5/mf9qiWYae7DxSnoviwQn/31aLYDOMweeCh35VEm5wF1NRlMZ94Icc44FZ5OZsZ1TCliN36UxkKX2\u002B/SW67XHKKslIrBf8mKmPPmzEBCTzVc/xz1tSmQ2BwJvv4/zXHgC/kYPRbuTIfLfA8yXjBukZabNlF203nOvoQ=="
       }
     ]
   }

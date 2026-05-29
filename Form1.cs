@@ -47,8 +47,7 @@ namespace Bai1
                 NgayHetHan = dtNgayCap.Value,
             };
 
-            tx.TransactionHash = tx.CalculateHash();
-
+            tx.Sign();
             pending.Add(tx);
 
             dgvTransaction.Rows.Add(
@@ -57,8 +56,7 @@ namespace Bai1
                 tx.TenCongTy,
                 tx.LoaiSanPham,
                 tx.NgayCap.ToString("dd/MM/yyyy"),
-                tx.NgayHetHan.ToString("dd/MM/yyyy"),
-                tx.TransactionHash
+                tx.NgayHetHan.ToString("dd/MM/yyyy")
             );
 
             txtSoChungNhan.Clear();
@@ -164,21 +162,14 @@ namespace Bai1
                 for (int j = 0; j < block.Transactions.Count; j++)
                 {
                     var tx = block.Transactions[j];
-                    string recalculatedTxHash = HashData.Hash(
-                        $"{tx.SoChungNhan}|{tx.MaSoThue}|{tx.TenCongTy}|{tx.LoaiSanPham}|{tx.NgayCap}|{tx.NgayHetHan}"
-                    );
 
-                    if (tx.TransactionHash != recalculatedTxHash)
+                    if (!tx.Verify())
                     {
                         ok = false;
-
-                        errors.Add(
-                            $"Block {block.Index} bị sửa, transaction thứ {j + 1} không hợp lệ bị sửa"
-                        );
+                        errors.Add($"Block {block.Index} - transaction thứ {j + 1} không hợp lệ (hash/chữ ký).");
                     }
                 }
 
-                // 🔥 CHECK BLOCK HASH
                 string data = block.Index + prevHash;
 
                 foreach (var tx in block.Transactions)
@@ -215,9 +206,8 @@ namespace Bai1
                 string info = $"Block {bl.Index}\nPrevHash: {bl.PrevHash}\nHash: {bl.Hash}\nTransactions:\n";
                 foreach (var tx in bl.Transactions)
                 {
-                    info += $"  * {tx.SoChungNhan} | {tx.MaSoThue} | {tx.TenCongTy} | {tx.LoaiSanPham} | {tx.NgayCap} | {tx.NgayHetHan} | {tx.Signature} | {tx.PublicKey}\n";
+                    info += $" * {tx.SoChungNhan} | {tx.MaSoThue} | {tx.TenCongTy} | {tx.LoaiSanPham} | {tx.NgayCap} | {tx.NgayHetHan} | {tx.Signature}\n";
                 }
-                MessageBox.Show(info);
             }
         }
     }

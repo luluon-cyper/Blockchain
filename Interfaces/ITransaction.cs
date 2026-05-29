@@ -12,7 +12,6 @@ namespace Bai1.Interfaces
         DateTime NgayHetHan { get; set; }
         string TransactionHash { get; set; }
         string Signature { get; set; }
-        string PublicKey { get; set; }
         string CalculateHash();
         void Seal();
         void Sign();

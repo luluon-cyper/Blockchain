@@ -58,17 +58,13 @@ namespace Bai1.Models
                 errors.Add($"Block {Index} bị sai liên kết PrevHash.");
             }
 
-            for (int i = 0; i < Transactions.Count; i++)
-            {
+            for(int i = 0; i < Transactions.Count; i++)
+{
                 Transaction tx = Transactions[i];
-                string recalculatedTxHash = tx.CalculateHash();
-
-                if (tx.TransactionHash != recalculatedTxHash)
+                if (!tx.Verify())
                 {
                     ok = false;
-                    errors.Add(
-                        $"Block {Index} - Transaction {i + 1} bị sửa "
-                    );
+                    errors.Add($"Block {Index} - Transaction {i + 1} bị sửa hoặc chữ ký không hợp lệ.");
                 }
             }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 using Bai1.Crypto;
 using Bai1.Interfaces;
 
@@ -14,7 +15,6 @@ namespace Bai1.Models
         public DateTime NgayHetHan { get; set; }
         public string TransactionHash { get; set; }
         public string Signature { get; set; }
-        public string PublicKey { get; set; }
 
         public Transaction()
         {
@@ -32,20 +32,37 @@ namespace Bai1.Models
             Sign();
         }
 
+        private string GetRawData()
+        {
+            return $"{SoChungNhan}|{MaSoThue}|{TenCongTy}|{LoaiSanPham}|{NgayCap:O}|{NgayHetHan:O}";
+        }
+
         public string CalculateHash()
         {
-            string raw = $"{this.SoChungNhan}|{this.MaSoThue}|{this.TenCongTy}|{this.LoaiSanPham}|{this.NgayCap}|{this.NgayHetHan}";
-            return HashData.Hash(raw);
+            return HashData.Hash(GetRawData());
         }
 
         public void Seal()
         {
             TransactionHash = CalculateHash();
         }
+
         public void Sign()
         {
-            string data = $"{this.SoChungNhan}|{this.MaSoThue}|{this.TenCongTy}|{this.LoaiSanPham}|{this.NgayCap}|{this.NgayHetHan}";
-            (Signature, PublicKey) = HashData.Sign(data);
+            if (string.IsNullOrWhiteSpace(TransactionHash))
+                Seal();
+
+            Signature = HashData.Sign(GetRawData());
+        }
+
+        public bool VerifySignature()
+        {
+            return HashData.Verify(GetRawData(), Signature);
+        }
+
+        public bool Verify()
+        {
+            return TransactionHash == CalculateHash() && VerifySignature();
         }
     }
 }
