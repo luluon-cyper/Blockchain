@@ -13,7 +13,6 @@ namespace Bai1.Interfaces
         string TransactionHash { get; set; }
         string Signature { get; set; }
         string CalculateHash();
-        void Seal();
         void Sign();
     }
 }

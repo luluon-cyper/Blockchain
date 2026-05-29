@@ -162,7 +162,6 @@ namespace Bai1
                 for (int j = 0; j < block.Transactions.Count; j++)
                 {
                     var tx = block.Transactions[j];
-
                     if (!tx.Verify())
                     {
                         ok = false;
