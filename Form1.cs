@@ -26,7 +26,28 @@ namespace Bai1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            HashData.EnsureKeyPair();
+            RefreshBlockGrid();
+        }
+
+        private string GetDisplayMerkleRoot(Block block)
+        {
+            if (block == null) return string.Empty;
+            return string.IsNullOrWhiteSpace(block.MerkleRoot) ? block.CalculateMerkleRoot() : block.MerkleRoot;
+        }
+
+        private void RefreshBlockGrid()
+        {
+            dataGridView2.Rows.Clear();
+
+            foreach (var block in chain)
+            {
+                dataGridView2.Rows.Add(
+                    block.Index,
+                    block.PrevHash,
+                    GetDisplayMerkleRoot(block),
+                    block.Hash
+                );
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -73,17 +94,14 @@ namespace Bai1
             if (pending.Count == 0)
                 return;
 
-            Block block = new Block
-            {
-                Index = chain.Count
-            };
+            Block block = new Block(chain.Count);
 
-            string prevHash = chain.Count == 0 ? "0" : chain.Last().Hash;
-
-            foreach (Transaction tx in pending)
+            foreach (var tx in pending)
             {
                 block.AddTransaction(tx);
             }
+
+            string prevHash = chain.Count == 0 ? "0" : chain.Last().Hash;
 
             block.Seal(prevHash);
             chain.Add(block);
@@ -91,6 +109,7 @@ namespace Bai1
             dataGridView2.Rows.Add(
                 block.Index,
                 block.PrevHash,
+                block.MerkleRoot,
                 block.Hash
             );
 
@@ -126,14 +145,14 @@ namespace Bai1
             }
 
             string json = File.ReadAllText(path);
-            
+
             if (string.IsNullOrWhiteSpace(json))
             {
                 MessageBox.Show("File rỗng");
                 return;
             }
 
-            chain = JsonSerializer.Deserialize<List<Block>>(json);
+            chain = JsonSerializer.Deserialize<List<Block>>(json) ?? new List<Block>();
 
             dataGridView2.Rows.Clear();
             foreach (var block in chain)
@@ -141,6 +160,7 @@ namespace Bai1
                 dataGridView2.Rows.Add(
                     block.Index,
                     block.PrevHash,
+                    GetDisplayMerkleRoot(block),
                     block.Hash
                 );
             }

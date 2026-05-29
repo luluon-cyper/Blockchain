@@ -43,6 +43,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvTransaction = new System.Windows.Forms.DataGridView();
+            this.colSoChungNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaSoThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenCongTy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLoaiSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNgayCap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNgayhetHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btnDetailBlock = new System.Windows.Forms.Button();
             this.btnSaveBlock = new System.Windows.Forms.Button();
@@ -50,13 +56,8 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.colIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrevHash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMerkleRoot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHash = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoChungNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaSoThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenCongTy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLoaiSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNgayCap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNgayhetHan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -220,8 +221,50 @@
             this.dgvTransaction.Name = "dgvTransaction";
             this.dgvTransaction.RowHeadersWidth = 51;
             this.dgvTransaction.RowTemplate.Height = 24;
-            this.dgvTransaction.Size = new System.Drawing.Size(947, 222);
+            this.dgvTransaction.Size = new System.Drawing.Size(1075, 222);
             this.dgvTransaction.TabIndex = 1;
+            // 
+            // colSoChungNhan
+            // 
+            this.colSoChungNhan.HeaderText = "Số giấy chứng nhận";
+            this.colSoChungNhan.MinimumWidth = 6;
+            this.colSoChungNhan.Name = "colSoChungNhan";
+            this.colSoChungNhan.Width = 175;
+            // 
+            // colMaSoThue
+            // 
+            this.colMaSoThue.HeaderText = "Mã số thuế";
+            this.colMaSoThue.MinimumWidth = 6;
+            this.colMaSoThue.Name = "colMaSoThue";
+            this.colMaSoThue.Width = 125;
+            // 
+            // colTenCongTy
+            // 
+            this.colTenCongTy.HeaderText = "Tên công ty";
+            this.colTenCongTy.MinimumWidth = 6;
+            this.colTenCongTy.Name = "colTenCongTy";
+            this.colTenCongTy.Width = 125;
+            // 
+            // colLoaiSanPham
+            // 
+            this.colLoaiSanPham.HeaderText = "Loại sản phẩm";
+            this.colLoaiSanPham.MinimumWidth = 6;
+            this.colLoaiSanPham.Name = "colLoaiSanPham";
+            this.colLoaiSanPham.Width = 125;
+            // 
+            // colNgayCap
+            // 
+            this.colNgayCap.HeaderText = "Ngày cấp";
+            this.colNgayCap.MinimumWidth = 6;
+            this.colNgayCap.Name = "colNgayCap";
+            this.colNgayCap.Width = 125;
+            // 
+            // colNgayhetHan
+            // 
+            this.colNgayhetHan.HeaderText = "Ngày hết hạn";
+            this.colNgayhetHan.MinimumWidth = 6;
+            this.colNgayhetHan.Name = "colNgayhetHan";
+            this.colNgayhetHan.Width = 125;
             // 
             // dataGridView2
             // 
@@ -229,13 +272,14 @@
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colIndex,
             this.colPrevHash,
+            this.colMerkleRoot,
             this.colHash});
             this.dataGridView2.Location = new System.Drawing.Point(538, 28);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(428, 279);
+            this.dataGridView2.Size = new System.Drawing.Size(556, 279);
             this.dataGridView2.TabIndex = 2;
             // 
             // btnDetailBlock
@@ -296,6 +340,13 @@
             this.colPrevHash.Name = "colPrevHash";
             this.colPrevHash.Width = 125;
             // 
+            // colMerkleRoot
+            // 
+            this.colMerkleRoot.HeaderText = "Merkle Root ";
+            this.colMerkleRoot.MinimumWidth = 6;
+            this.colMerkleRoot.Name = "colMerkleRoot";
+            this.colMerkleRoot.Width = 125;
+            // 
             // colHash
             // 
             this.colHash.HeaderText = "Hash";
@@ -303,53 +354,11 @@
             this.colHash.Name = "colHash";
             this.colHash.Width = 125;
             // 
-            // colSoChungNhan
-            // 
-            this.colSoChungNhan.HeaderText = "Số giấy chứng nhận";
-            this.colSoChungNhan.MinimumWidth = 6;
-            this.colSoChungNhan.Name = "colSoChungNhan";
-            this.colSoChungNhan.Width = 175;
-            // 
-            // colMaSoThue
-            // 
-            this.colMaSoThue.HeaderText = "Mã số thuế";
-            this.colMaSoThue.MinimumWidth = 6;
-            this.colMaSoThue.Name = "colMaSoThue";
-            this.colMaSoThue.Width = 125;
-            // 
-            // colTenCongTy
-            // 
-            this.colTenCongTy.HeaderText = "Tên công ty";
-            this.colTenCongTy.MinimumWidth = 6;
-            this.colTenCongTy.Name = "colTenCongTy";
-            this.colTenCongTy.Width = 125;
-            // 
-            // colLoaiSanPham
-            // 
-            this.colLoaiSanPham.HeaderText = "Loại sản phẩm";
-            this.colLoaiSanPham.MinimumWidth = 6;
-            this.colLoaiSanPham.Name = "colLoaiSanPham";
-            this.colLoaiSanPham.Width = 125;
-            // 
-            // colNgayCap
-            // 
-            this.colNgayCap.HeaderText = "Ngày cấp";
-            this.colNgayCap.MinimumWidth = 6;
-            this.colNgayCap.Name = "colNgayCap";
-            this.colNgayCap.Width = 125;
-            // 
-            // colNgayhetHan
-            // 
-            this.colNgayhetHan.HeaderText = "Ngày hết hạn";
-            this.colNgayhetHan.MinimumWidth = 6;
-            this.colNgayhetHan.Name = "colNgayhetHan";
-            this.colNgayhetHan.Width = 125;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 581);
+            this.ClientSize = new System.Drawing.Size(1132, 581);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnCheckBlock);
             this.Controls.Add(this.btnSaveBlock);
@@ -391,15 +400,16 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.DateTimePicker dtNgayHetHan;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIndex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrevHash;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colHash;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSoChungNhan;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaSoThue;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTenCongTy;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLoaiSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNgayCap;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNgayhetHan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIndex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrevHash;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMerkleRoot;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHash;
     }
 }
 

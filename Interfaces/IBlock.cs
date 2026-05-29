@@ -10,6 +10,7 @@ namespace Bai1.Interfaces
         string Hash { get; set; }
         List<Transaction> Transactions { get; set; }
         void AddTransaction(Transaction transaction);
+        string CalculateMerkleRoot();
         string CalculateHash(string previousHash);
         void Seal(string previousHash);
         bool Verify(string expectedPrevHash, List<string> errors);  
