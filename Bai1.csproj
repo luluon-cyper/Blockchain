@@ -84,7 +84,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IBlock.cs.cs" />
+    <Compile Include="Interfaces\IBlock.cs" />
     <Compile Include="Interfaces\IBlockChain.cs" />
     <Compile Include="Interfaces\ITransaction.cs" />
     <Compile Include="Models\Block.cs" />

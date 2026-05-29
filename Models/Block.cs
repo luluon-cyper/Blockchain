@@ -11,7 +11,6 @@ namespace Bai1.Models
         public int Index { get; set; }
         public string PrevHash { get; set; }
         public string Hash { get; set; }
-
         public List<Transaction> Transactions { get; set; }
 
         public Block()
@@ -30,7 +29,7 @@ namespace Bai1.Models
                 throw new ArgumentNullException(nameof(transaction));
 
             if (string.IsNullOrWhiteSpace(transaction.TransactionHash))
-                transaction.Seal();
+                transaction.Sign();
 
             Transactions.Add(transaction);
         }
@@ -44,31 +43,35 @@ namespace Bai1.Models
 
         public void Seal(string previousHash)
         {
-            PrevHash = previousHash;
-            Hash = CalculateHash(previousHash);
+            PrevHash = previousHash ?? "0";
+            Hash = CalculateHash(PrevHash);
         }
 
         public bool Verify(string expectedPrevHash, List<string> errors)
         {
-            bool ok = true;
+            if (errors == null)
+                throw new ArgumentNullException(nameof(errors));
 
-            if (PrevHash != expectedPrevHash)
+            bool ok = true;
+            string normalizedPrevHash = expectedPrevHash ?? "0";
+
+            if (PrevHash != normalizedPrevHash)
             {
                 ok = false;
                 errors.Add($"Block {Index} bị sai liên kết PrevHash.");
             }
 
-            for(int i = 0; i < Transactions.Count; i++)
-{
+            for (int i = 0; i < Transactions.Count; i++)
+            {
                 Transaction tx = Transactions[i];
-                if (!tx.Verify())
+                if (tx == null || !tx.Verify())
                 {
                     ok = false;
                     errors.Add($"Block {Index} - Transaction {i + 1} bị sửa hoặc chữ ký không hợp lệ.");
                 }
             }
 
-            string recalculatedBlockHash = CalculateHash(expectedPrevHash);
+            string recalculatedBlockHash = CalculateHash(normalizedPrevHash);
             if (Hash != recalculatedBlockHash)
             {
                 ok = false;

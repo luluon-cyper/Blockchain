@@ -14,5 +14,6 @@ namespace Bai1.Interfaces
         string Signature { get; set; }
         string CalculateHash();
         void Sign();
+        bool Verify();
     }
 }

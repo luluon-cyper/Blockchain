@@ -12,6 +12,6 @@ namespace Bai1.Interfaces
         void AddTransaction(Transaction transaction);
         string CalculateHash(string previousHash);
         void Seal(string previousHash);
-        bool Verify(string expectedPrevHash, List<string> errors);
+        bool Verify(string expectedPrevHash, List<string> errors);  
     }
 }

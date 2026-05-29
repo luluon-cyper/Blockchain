@@ -12,7 +12,6 @@ namespace Bai1.Models
         public string LoaiSanPham { get; set; }
         public DateTime NgayCap { get; set; }
         public DateTime NgayHetHan { get; set; }
-
         public string TransactionHash { get; set; }
         public string Signature { get; set; }
 
@@ -32,10 +31,15 @@ namespace Bai1.Models
             Signature = HashData.Sign(GetRawData());
         }
 
+        public void Seal()
+        {
+            Sign();
+        }
+
         public bool Verify()
         {
-            return TransactionHash == CalculateHash()
-                   && HashData.Verify(GetRawData(), Signature);
+            return TransactionHash == CalculateHash() &&
+                   HashData.Verify(GetRawData(), Signature);
         }
     }
 }

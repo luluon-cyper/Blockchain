@@ -84,7 +84,7 @@
             this.groupBox1.Size = new System.Drawing.Size(470, 225);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Information";
             // 
             // dtNgayHetHan
             // 
@@ -235,12 +235,12 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(428, 225);
+            this.dataGridView2.Size = new System.Drawing.Size(428, 279);
             this.dataGridView2.TabIndex = 2;
             // 
             // btnDetailBlock
             // 
-            this.btnDetailBlock.Location = new System.Drawing.Point(19, 273);
+            this.btnDetailBlock.Location = new System.Drawing.Point(391, 273);
             this.btnDetailBlock.Margin = new System.Windows.Forms.Padding(2);
             this.btnDetailBlock.Name = "btnDetailBlock";
             this.btnDetailBlock.Size = new System.Drawing.Size(98, 34);
@@ -251,7 +251,7 @@
             // 
             // btnSaveBlock
             // 
-            this.btnSaveBlock.Location = new System.Drawing.Point(159, 273);
+            this.btnSaveBlock.Location = new System.Drawing.Point(19, 273);
             this.btnSaveBlock.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveBlock.Name = "btnSaveBlock";
             this.btnSaveBlock.Size = new System.Drawing.Size(98, 34);
@@ -262,7 +262,7 @@
             // 
             // btnCheckBlock
             // 
-            this.btnCheckBlock.Location = new System.Drawing.Point(440, 273);
+            this.btnCheckBlock.Location = new System.Drawing.Point(266, 273);
             this.btnCheckBlock.Margin = new System.Windows.Forms.Padding(2);
             this.btnCheckBlock.Name = "btnCheckBlock";
             this.btnCheckBlock.Size = new System.Drawing.Size(98, 34);
@@ -273,7 +273,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(298, 273);
+            this.btnLoad.Location = new System.Drawing.Point(145, 273);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(98, 34);

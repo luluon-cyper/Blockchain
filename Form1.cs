@@ -26,7 +26,7 @@ namespace Bai1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            HashData.EnsureKeyPair();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace Bai1
                 TenCongTy = txtTenCongTy.Text,
                 LoaiSanPham = txtLoaiSanPham.Text,
                 NgayCap = dtNgayCap.Value,
-                NgayHetHan = dtNgayCap.Value,
+                NgayHetHan = dtNgayHetHan.Value,
             };
 
             tx.Sign();
@@ -70,26 +70,24 @@ namespace Bai1
 
         private void CreateBlock()
         {
-            Block block = new Block();
-            block.Index = chain.Count;
+            if (pending.Count == 0)
+                return;
+
+            Block block = new Block
+            {
+                Index = chain.Count
+            };
 
             string prevHash = chain.Count == 0 ? "0" : chain.Last().Hash;
 
-            block.PrevHash = prevHash;
-
-            foreach (var tx in pending)
+            foreach (Transaction tx in pending)
             {
-                block.Transactions.Add(tx);
+                block.AddTransaction(tx);
             }
 
-            string data = block.Index + prevHash;
-
-            foreach (var t in block.Transactions)
-                data += t.TransactionHash;
-
-            block.Hash = HashData.Hash(data);
-
+            block.Seal(prevHash);
             chain.Add(block);
+
             dataGridView2.Rows.Add(
                 block.Index,
                 block.PrevHash,
@@ -151,63 +149,58 @@ namespace Bai1
         private void btnCheckBlock_Click(object sender, EventArgs e)
         {
             List<string> errors = new List<string>();
-
-            string prevHash = "0";
             bool ok = true;
+            string prevHash = "0";
 
             for (int i = 0; i < chain.Count; i++)
             {
-                var block = chain[i];
-
-                for (int j = 0; j < block.Transactions.Count; j++)
-                {
-                    var tx = block.Transactions[j];
-                    if (!tx.Verify())
-                    {
-                        ok = false;
-                        errors.Add($"Block {block.Index} - transaction thứ {j + 1} không hợp lệ (hash/chữ ký).");
-                    }
-                }
-
-                string data = block.Index + prevHash;
-
-                foreach (var tx in block.Transactions)
-                    data += tx.TransactionHash;
-
-                string recalculatedBlockHash = HashData.Hash(data);
-
-                if (block.Hash != recalculatedBlockHash)
-                {
+                Block block = chain[i];
+                if (block == null || !block.Verify(prevHash, errors))
                     ok = false;
-                    errors.Add($"Block {block.Index} bị sửa");
-                }
 
-                prevHash = block.Hash;
+                prevHash = block?.Hash;
             }
-            if (ok)
+
+            if (ok && errors.Count == 0)
             {
                 MessageBox.Show("Blockchain hợp lệ");
             }
             else
             {
-                MessageBox.Show(string.Join("\n", errors));
+                MessageBox.Show(string.Join(Environment.NewLine, errors));
             }
         }
 
         private void btnDetailBlock_Click(object sender, EventArgs e)
         {
-            string chiSoStr = dataGridView2.CurrentRow.Cells["colIndex"].Value?.ToString();
-
-            int ChiSo = int.Parse(chiSoStr);
-            Block bl= chain.FirstOrDefault(b => b.Index == ChiSo);
-            if (bl != null)
+            if (dataGridView2.CurrentRow == null)
             {
-                string info = $"Block {bl.Index}\nPrevHash: {bl.PrevHash}\nHash: {bl.Hash}\nTransactions:\n";
-                foreach (var tx in bl.Transactions)
-                {
-                    info += $" * {tx.SoChungNhan} | {tx.MaSoThue} | {tx.TenCongTy} | {tx.LoaiSanPham} | {tx.NgayCap} | {tx.NgayHetHan} | {tx.Signature}\n";
-                }
+                MessageBox.Show("Chọn một block trước");
+                return;
             }
+
+            string chiSoStr = dataGridView2.CurrentRow.Cells["colIndex"].Value?.ToString();
+            if (!int.TryParse(chiSoStr, out int chiSo))
+            {
+                MessageBox.Show("Không đọc được chỉ số block");
+                return;
+            }
+
+            Block bl = chain.FirstOrDefault(b => b.Index == chiSo);
+            if (bl == null)
+            {
+                MessageBox.Show("Không tìm thấy block");
+                return;
+            }
+
+            string info = $"Block {bl.Index}\nPrevHash: {bl.PrevHash}\nHash: {bl.Hash}\nTransactions:\n";
+
+            foreach (Transaction tx in bl.Transactions)
+            {
+                info += $" * {tx.SoChungNhan} | {tx.MaSoThue} | {tx.TenCongTy} | {tx.LoaiSanPham} | {tx.NgayCap:dd/MM/yyyy} | {tx.NgayHetHan:dd/MM/yyyy} | \nHash: {tx.TransactionHash} | \nSig: {tx.Signature}\n\n";
+            }
+
+            MessageBox.Show(info);
         }
     }
 }

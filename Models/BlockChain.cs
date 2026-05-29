@@ -18,7 +18,10 @@ namespace Bai1.Models
 
         public void AddBlock(Block block)
         {
-            string previousHash = Current == null ? null : Current.Hash;
+            if (block == null)
+                return;
+
+            string previousHash = Current == null ? "0" : Current.Hash;
             block.Seal(previousHash);
             Blocks.Add(block);
         }
@@ -33,16 +36,15 @@ namespace Bai1.Models
             Errors.Clear();
 
             bool ok = true;
-            string prevHash = null;
+            string prevHash = "0";
 
             for (int i = 0; i < Blocks.Count; i++)
             {
                 Block block = Blocks[i];
-
-                if (!block.Verify(prevHash, Errors))
+                if (block == null || !block.Verify(prevHash, Errors))
                     ok = false;
 
-                prevHash = block.Hash;
+                prevHash = block?.Hash;
             }
 
             return ok && Errors.Count == 0;
